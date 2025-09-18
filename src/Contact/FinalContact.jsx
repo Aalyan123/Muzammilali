@@ -1,6 +1,6 @@
 import React from 'react'
 import TopBanner from './Topbanner'
-import ContactForm from './Contactform'
+import ContactForm from './ContactForm'
 import Expect from './eXPECT.JSX'
 import FAQ from "../Services/Faqs"
 
