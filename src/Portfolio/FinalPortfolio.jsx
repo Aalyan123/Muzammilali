@@ -1,7 +1,7 @@
 import React from 'react'
 import TopBanner from './Topbanner'
 import DesignExpertise from './Designexpertise'
-import Categories from './categories.jsx'
+import Categories from './Categories.jsx'
 import Learningcontinuous from "./Learningcontinuous.jsx"
 
 const FinalPortfolio = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import TopBanner from './Topbanner'
 import ContactForm from './ContactForm'
-import Expect from './eXPECT.JSX'
+import Expect from './Expect.jsx'
 import FAQ from "../Services/Faqs"
 
 const FinalContact = () => {
