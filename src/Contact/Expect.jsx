@@ -33,7 +33,7 @@ const steps = [
   },
 ];
 
-const ProcessSection = () => {
+const Expect = () => {
   return (
     <section className="bg-gray-50 py-20 px-6 lg:px-16">
       <div className="max-w-6xl mx-auto text-center">
@@ -80,4 +80,4 @@ const ProcessSection = () => {
   );
 };
 
-export default ProcessSection;
+export default Expect;
