@@ -11,7 +11,7 @@ import Social5 from "../assets/SocialmediaDesign5.jpg"
 import Social6 from "../assets/SocialmediaDesign6.jpg"
 import Social7 from "../assets/SocialmediaDesign7.jpg"
 import real1 from "../assets/Realestate1.jpg"
-import real2 from "../assets/realestate2.jpg"
+
 import real3 from "../assets/Realestate3.jpg"
 import real4 from "../assets/Realestate4.jpg"
 import real5 from "../assets/Realestate5.jpg"
@@ -63,7 +63,6 @@ const Categories = () => {
     ],
     'Real State': [
       { image: real1, title: 'Luxury Property Showcase', description: 'High-end property marketing material' },
-      { image: real2, title: 'Property Listing Flyer', description: 'Professional real estate listing design' },
       { image: real3, title: 'Real Estate Brochure', description: 'Elegant property brochure with details' },
       { image: real4, title: 'Modern Home Listing', description: 'Contemporary home presentation design' },
       { image: real5, title: 'Real Estate Marketing', description: 'Professional property marketing banner' },
