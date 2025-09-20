@@ -1,8 +1,8 @@
 import React from "react";
-import img1 from "../assets/graphicimg.PNG";
+import img1 from "../assets/ProductPost3.jpg";
 import img2 from "../assets/graphicimg2.PNG";
-import img3 from "../assets/graphicimg3.PNG";
-import img4 from "../assets/graphicimg4.PNG";
+import img3 from "../assets/ProductPost4.jpg";
+import img4 from "../assets/SocialmediaDesign5.jpg";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -41,7 +41,7 @@ const Cardssection = () => {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-amber-300 drop-shadow-xl"
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-red-400 drop-shadow-xl"
               src={img1}
               alt="Graphic Design"
             />
@@ -120,7 +120,7 @@ const Cardssection = () => {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-gray-300 drop-shadow-xl"
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-purple-300 drop-shadow-xl"
               src={img3}
               alt="Graphic Design"
             />
@@ -133,7 +133,7 @@ const Cardssection = () => {
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-18 py-12">
           <div className="flex-1 flex justify-center">
             <img
-              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-gray-300 drop-shadow-xl"
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg rounded-xl shadow-2xl shadow-yellow-100 drop-shadow-xl"
               src={img4}
               alt="Creative Design"
             />

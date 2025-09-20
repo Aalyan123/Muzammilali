@@ -1,6 +1,6 @@
 import React from 'react'
-import img1 from '../assets/additionalimg.jpg'
-import img2 from '../assets/additionalimg2.png'
+import img1 from '../assets/ProductPost2.jpg'
+import img2 from '../assets/Realestate5.jpg'
 import arrow from '../assets/arrow.png'
 import { Link } from 'react-router-dom'
 
