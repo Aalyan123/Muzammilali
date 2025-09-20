@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, Linkedin, Instagram, Heart, Copyright, Facebook } from 'lucide-react';
+import {Link} from "react-router-dom"
 
 // Main Footer component replicating the design from the provided image.
 const Footer = () => {
@@ -35,11 +36,11 @@ const Footer = () => {
           <div className="flex flex-col space-y-4 lg:w-1/6">
             <h3 className="text-xl font-bold text-white mb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Skills</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><Link to='/' ><a  className="hover:text-white transition-colors">Home</a>     </Link>   </li>
+              <li><Link to='/about'><a  className="hover:text-white transition-colors">About</a>    </Link> </li>
+              <li><Link to='/services'><a  className="hover:text-white transition-colors">Services</a> </Link>   </li>
+              <li><Link to='/portfolio'><a  className="hover:text-white transition-colors">Portfollio</a>   </Link>  </li>
+              <li><Link to='/contact'><a  className="hover:text-white transition-colors">Contact</a>  </Link>  </li>
             </ul>
           </div>
           
@@ -65,7 +66,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Phone className="w-5 h-5 text-slate-400" />
-              <a href="tel:+15551234567" className="hover:text-white transition-colors">+92 3458038415</a>
+              <a href="https://wa.me/message/LXBCVIMNFETKH1" target='blank' className="hover:text-white transition-colors">+92 3458038415</a>
             </div>
             <div className="mt-4">
               <h4 className="font-semibold text-white text-sm">Business Hours:</h4>

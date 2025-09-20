@@ -200,7 +200,9 @@ const ContactForm = () => {
                 <Mail className="text-blue-600" /> contact@muzammilali.site
               </li>
               <li className="flex items-center gap-3">
+                <a href="https://wa.me/message/LXBCVIMNFETKH1" target='blank'className="flex" >
                 <Phone className="text-green-600" /> +92 3458038415
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="text-purple-600" /> Rahim Yar Khan
