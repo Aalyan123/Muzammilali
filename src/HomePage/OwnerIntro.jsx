@@ -1,5 +1,5 @@
 import React from "react";
-import muzammil from "../assets/Muzammil.png";
+import muzammil from "../assets/Muzammil.jpeg";
 import arrow from "../assets/arrow.png";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const OwnerIntro = () => {
       <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
         {/* Left Image */}
         <img
-          className="w-56 sm:w-72 md:w-80 lg:w-[22rem] object-contain"
+          className="w-56 sm:w-72 rounded-full md:w-80 lg:w-[22rem] object-contain"
           src={muzammil}
           alt="Muzammil Ali"
         />

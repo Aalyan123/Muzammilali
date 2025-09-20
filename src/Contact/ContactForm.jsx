@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Mail, Phone, MapPin, Clock, Linkedin, Instagram, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Linkedin, Instagram, Send, Facebook } from "lucide-react";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 
@@ -205,7 +205,7 @@ const ContactForm = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="text-purple-600" /> Rahim Yar Khan
+                <MapPin className="text-purple-600" /> Pakistan
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="text-orange-600" /> Response within 24 hours
@@ -216,7 +216,7 @@ const ContactForm = () => {
           {/* Business Hours */}
           <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
             <h3 className="text-lg font-bold text-gray-800 mb-4">Business Hours</h3>
-            <p className="text-gray-600">Mon - Sat:  6 PM to 11:30 PM (GST)</p>
+            <p className="text-gray-600">Mon - Sat: 5:00 PM to 11:30 PM (GST)</p>
             <p className="text-gray-600">Sunday: Closed</p>
           </div>
 
@@ -226,7 +226,7 @@ const ContactForm = () => {
             <ul className="space-y-3 text-gray-600">
                <a href="https://www.facebook.com/GraphixGoo" target='blank' >
               <li className="flex items-center gap-3">
-                <Linkedin className="text-blue-700" /> LinkedIn - Professional updates
+                <Facebook className="text-blue-700" /> Facebook - Professional updates
               </li>
                 </a>
                  <a href="https://www.instagram.com/GraphixGoo" target='blank' >
