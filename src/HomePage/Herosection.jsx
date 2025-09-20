@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Herosection = () => {
   return (
@@ -43,6 +44,7 @@ const Herosection = () => {
           {/* Buttons Container - Moved up on mobile */}
           <div className="text-center flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8 md:mt-10 max-w-md sm:max-w-none mx-auto">
             {/* Primary Button */}
+            <Link to="/portfolio">
             <button
               className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold 
               px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base
@@ -53,8 +55,9 @@ const Herosection = () => {
               View All Skills
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </button>
-
+             </Link>
             {/* Secondary Button */}
+              <Link to="/contact">
             <button
               className="group px-4 py-3 sm:px-6 sm:py-3 text-sm sm:text-base
               rounded-lg sm:rounded-full border-2 border-black 
@@ -69,6 +72,7 @@ const Herosection = () => {
                 Let's Work Together
               </span>
             </button>
+            </Link>
           </div>
         </div>
       </div>
