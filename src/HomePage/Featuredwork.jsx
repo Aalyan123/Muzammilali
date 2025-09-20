@@ -1,10 +1,11 @@
 import React from 'react'
 import printDesign from "../assets/additionalimg.jpg"
-import Ui from "../assets/additionalimg2.png"
-import Branding from "../assets/graphicimg.PNG"
-import webDesign from "../assets/graphicimg2.PNG"
-import socialMedia from "../assets/graphicimg3.PNG"
-import productDesign from "../assets/graphicimg4.PNG"
+import socialpost from "../assets/SocialmediaDesign7.jpg"
+import Branding from "../assets/ProductPost3.jpg"
+import food from "../assets/ProductPost5.jpg"
+import socialMedia from "../assets/SocialmediaDesign6.jpg"
+import realstate from "../assets/Realestate7.jpg"
+import productDesign from "../assets/ProductPost2.jpg"
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -18,13 +19,13 @@ const Featuredwork = () => {
       description: "Complete visual identity including logo, color palette, and brand guidelines"
     },
     {
-      img: webDesign,
-      field: "Web Design",
-      title: "E-commerce Website Design",
+      img: food,
+      field: "Food Design",
+      title: "Attractive Food Designing",
       description: "Modern, responsive website with seamless user experience"
     },
     {
-      img: printDesign,
+      img: realstate,
       field: "Print Design",
       title: "Print Design Portfolio",
       description: "Creative and professional print design for marketing campaigns"
@@ -42,10 +43,10 @@ const Featuredwork = () => {
       description: "Engaging visual content for multi-platform social media presence"
     },
     {
-      img: Ui,
-      field: "UI/UX",
-      title: "Mobile App Interface",
-      description: "Intuitive UI/UX design for iOS and Android applications"
+      img: socialpost,
+      field: "Social Media Post Design",
+      title: "Enganing Social Media Post Designs",
+      description: "Social Media Post Designs of the fields and Types."
     }
   ]
 
