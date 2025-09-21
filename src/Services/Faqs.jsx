@@ -51,7 +51,7 @@ const Faqs = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 py-16 px-4 sm:px-6 lg:px-8" style={{ fontFamily: "Poppins" }}>
+    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8" style={{ fontFamily: "Poppins" }}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
