@@ -24,10 +24,10 @@ const Footer = () => {
             <div className="flex space-x-4">
               
                <a href="https://www.facebook.com/GraphixGoo" target='blank' aria-label="LinkedIn" className="p-3 border border-slate-700 rounded-full hover:bg-slate-800 transition-colors">
-                <Facebook className="w-5 h-5 text-slate-400 hover:text-white" />
+                <Facebook className="w-5 h-5 text-slate-400 hover:text-blue-600 hover:scale-110" />
               </a>
               <a href="https://www.instagram.com/GraphixGoo" target='blank' aria-label="Instagram" className="p-3 border border-slate-700 rounded-full hover:bg-slate-800 transition-colors">
-                <Instagram className="w-5 h-5 text-slate-400 hover:text-white" />
+                <Instagram className="w-5 h-5 text-slate-400 hover:text-pink-400 hover:scale-110" />
               </a>
             </div>
           </div>
