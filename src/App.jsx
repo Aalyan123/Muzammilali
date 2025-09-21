@@ -1,5 +1,6 @@
 import Navbar from "./HomePage/Navbar";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ScrollToTop from "./ScrollTop";
 import Services from "./Services/Allservices";
 import HomePage from "./HomePage/FinalHomePage";
 import About from "./About/FinalAbout";
@@ -42,29 +43,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  // return (
-  //   <>
-  //     {/* <Navbar />
-  //     <Routes>
-  //       <Route path="/" element={<HomePage />} />
-  //       <Route path="/services" element={<Services />} />
-       
-  //     </Routes> */}
-  //   </>
-  // );

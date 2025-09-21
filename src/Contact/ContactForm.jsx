@@ -18,7 +18,7 @@ const ContactInfo = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-20 px-6 md:px-12 lg:px-20 flex items-center justify-center">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto" style={{fontFamily:"Poppins"}}>
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
