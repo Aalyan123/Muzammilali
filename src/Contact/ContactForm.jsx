@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, Phone, MapPin, Clock, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
-import { FaBehance } from "react-icons/fa"; // added for Behance icon
+import { FaBehance } from "react-icons/fa"; 
 
 const ContactInfo = () => {
   // Function to open Gmail compose with pre-filled recipient
