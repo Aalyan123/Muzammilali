@@ -1,5 +1,7 @@
 import React from 'react';
 import { Star, Target, Users, Code } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const WhyChooseUs = () => {
   const features = [
@@ -29,27 +31,68 @@ const WhyChooseUs = () => {
     }
   ];
 
+  // Animation variants for header
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Animation variants for features
+  const featureVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 }
+    })
+  };
+
+  // Animation variants for stats
+  const statVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 }
+    })
+  };
+
+  // Hooks for in-view detection
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [featuresRef, featuresInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6FF]">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl  font-bold text-gray-900 mb-6" style={{fontFamily:"Poppins"}}>
+        <motion.div
+          ref={headerRef}
+          initial="hidden"
+          animate={headerInView ? "visible" : "hidden"}
+          variants={headerVariants}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins" }}>
             Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Muzammil Ali</span>?
           </h1>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{fontFamily:"Outfit"}}>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: "Outfit" }}>
             Combining creative excellence with strategic thinking to deliver design solutions that not only look amazing but also achieve your business objectives.
           </p>
-        </div>
+        </motion.div>
 
         {/* Divider */}
         <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto mb-16 rounded-full"></div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
+              custom={index}
+              initial="hidden"
+              animate={featuresInView ? "visible" : "hidden"}
+              variants={featureVariants}
               className="group relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
             >
               {/* Gradient Background Effect */}
@@ -63,39 +106,40 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Title */}
-              <h3 style={{fontFamily:"Poppins"}} className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+              <h3 style={{ fontFamily: "Poppins" }} className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-600 leading-relaxed text-md" style={{fontFamily:"Outfit"}}> 
+              <p className="text-gray-600 leading-relaxed text-md" style={{ fontFamily: "Outfit" }}>
                 {feature.description}
               </p>
 
               {/* Hover Effect Line */}
               <div className={`absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r ${feature.gradient} group-hover:w-full transition-all duration-500 rounded-full`}></div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Stats Section (Optional) */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" >
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">25+</div>
-            <div className="text-gray-600">Projects Completed</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">96%</div>
-            <div className="text-gray-600">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">1.5+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">6+</div>
-            <div className="text-gray-600">Happy Clients</div>
-          </div>
+        {/* Stats Section */}
+        <div ref={statsRef} className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            { value: "25+", label: "Projects Completed" },
+            { value: "96%", label: "Client Satisfaction" },
+            { value: "1.5+", label: "Years Experience" },
+            { value: "6+", label: "Happy Clients" }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              custom={index}
+              initial="hidden"
+              animate={statsInView ? "visible" : "hidden"}
+              variants={statVariants}
+            >
+              <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
+              <div className="text-gray-600">{stat.label}</div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -4,25 +4,27 @@ import Photoshop from "../assets/photoshop.png";
 import Adobeillustrator from "../assets/adobeillustrator.png";
 import Canva from "../assets/canva.png";
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const DesignExpertise = () => {
   const skills = [
     {
-      icon: Photoshop, // This should be the imported image path
+      icon: Photoshop,
       name: "Adobe Photoshop",
       shortName: "Ps",
       proficiency: 95,
       color: "from-blue-600 to-blue-800"
     },
     {
-      icon: Adobeillustrator, // This should be the imported image path
+      icon: Adobeillustrator,
       name: "Adobe Illustrator",
       shortName: "Ai",
       proficiency: 90,
       color: "from-orange-600 to-orange-800"
     },
     {
-      icon: Canva, // This should be the imported image path
+      icon: Canva,
       name: "Canva Pro",
       shortName: "Canva",
       proficiency: 85,
@@ -30,75 +32,119 @@ const DesignExpertise = () => {
     }
   ];
 
+  // Animation variants for header
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Animation variants for skills
+  const skillVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 }
+    })
+  };
+
+  // Animation variants for button
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Hooks for in-view detection
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [skillsRef, skillsInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [buttonRef, buttonInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{fontFamily:"Poppins"}}>
+        <motion.div
+          ref={headerRef}
+          initial="hidden"
+          animate={headerInView ? "visible" : "hidden"}
+          variants={headerVariants}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: "Poppins" }}>
             Design <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Expertise</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto" style={{fontFamily:"Outfit"}}>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto" style={{ fontFamily: "Outfit" }}>
             Proficient in industry-leading design tools and software, with a strong foundation in 
             design principles and creative problem-solving.
           </p>
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div ref={skillsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {skills.map((skill, index) => (
-            <div
+            <motion.div
               key={index}
+              custom={index}
+              initial="hidden"
+              animate={skillsInView ? "visible" : "hidden"}
+              variants={skillVariants}
               className="group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
             >
-             
-             {/* Image with White Background (if filter doesn't work) */}
-<div className="w-28 h-16  rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 ">
-  <img 
-    src={skill.icon}
-    alt={skill.name}
-    className="w-27 h-18 object-contain"
-  />
-</div>
+              {/* Image */}
+              <div className="w-28 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+                <img 
+                  src={skill.icon}
+                  alt={skill.name}
+                  className="w-27 h-18 object-contain"
+                />
+              </div>
 
               {/* Short Name Badge */}
-              <div className="text-center mb-4" style={{fontFamily:"Poppins"}}>
+              <div className="text-center mb-4" style={{ fontFamily: "Poppins" }}>
                 <span className="inline-block bg-gray-100 text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">
                   {skill.shortName}
                 </span>
               </div>
 
               {/* Skill Name */}
-              <h3 className="text-xl font-semibold text-gray-900 text-center mb-6" style={{fontFamily:"Outfit"}}>
+              <h3 className="text-xl font-semibold text-gray-900 text-center mb-6" style={{ fontFamily: "Outfit" }}>
                 {skill.name}
               </h3>
 
               {/* Proficiency Bar */}
-              <div className="mb-4" style={{fontFamily:"Poppins"}}>
+              <div className="mb-4" style={{ fontFamily: "Poppins" }}>
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-sm font-medium text-gray-600">Proficiency</span>
                   <span className="text-sm font-bold text-gray-900">{skill.proficiency}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`}
-                    style={{ width: `${skill.proficiency}%` }}
-                  ></div>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={skillsInView ? { width: `${skill.proficiency}%` } : { width: 0 }}
+                    transition={{ duration: 1, ease: "easeOut", delay: index * 0.2 }}
+                    className={`bg-gradient-to-r ${skill.color} h-3 rounded-full`}
+                  ></motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* View All Skills Button */}
-        <div className="text-center">
+        <motion.div
+          ref={buttonRef}
+          initial="hidden"
+          animate={buttonInView ? "visible" : "hidden"}
+          variants={buttonVariants}
+          className="text-center"
+        >
           <Link to='/portfolio'>
-          <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-lg text-white font-semibold px-8 py-4 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto" style={{fontFamily:"Poppins"}}>
-            View All Skills
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </button>
+            <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-lg text-white font-semibold px-8 py-4 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center mx-auto" style={{ fontFamily: "Poppins" }}>
+              View All Skills
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

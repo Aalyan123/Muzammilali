@@ -18,7 +18,7 @@ const ContactInfo = () => {
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 py-20 px-6 md:px-12 lg:px-20 flex items-center justify-center">
-      <div className="max-w-4xl mx-auto" style={{fontFamily:"Poppins"}}>
+      <div className="max-w-4xl mx-auto" >
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -34,7 +34,7 @@ const ContactInfo = () => {
           </h1>
           <p
             className="text-xl text-gray-600 max-w-2xl mx-auto"
-            style={{ fontFamily: "Outfit" }}
+            style={{ fontFamily: "Poppins" }}
           >
             Ready to bring your vision to life? Get in touch and let's create
             something amazing together.
@@ -65,7 +65,7 @@ const ContactInfo = () => {
                 </h3>
                 <p
                   className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-                  style={{ fontFamily: "Outfit" }}
+                  style={{ fontFamily: "Poppins" }}
                 >
                   contact@muzammilali.site
                 </p>
@@ -97,18 +97,19 @@ const ContactInfo = () => {
                 >
                   WhatsApp
                 </h3>
-                <p
-                  className="text-gray-600 hover:text-green-600 transition-colors duration-300"
-                  style={{ fontFamily: "Outfit" }}
-                >
-                  +92 3458038415
-                </p>
-                <p
-                  className="text-sm text-gray-600 mt-1"
-                  style={{ fontFamily: "Outfit" }}
+                 <p
+                  className="text-xs text-gray-600 mt-1"
+                  style={{ fontFamily: "Poppins" }}
                 >
                   (WhatsApp for Faster response)
                 </p>
+                <p
+                  className="text-gray-600 hover:text-green-600 transition-colors duration-300"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  +92 3458038415
+                </p>
+               
               </div>
             </a>
           </motion.div>
@@ -134,7 +135,7 @@ const ContactInfo = () => {
                 </h3>
                 <p
                   className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
-                  style={{ fontFamily: "Outfit" }}
+                  style={{ fontFamily: "Poppins" }}
                 >
                   Pakistan
                 </p>
@@ -164,7 +165,7 @@ const ContactInfo = () => {
                 Business Hours
               </h3>
             </div>
-            <div className="space-y-2 ml-14" style={{ fontFamily: "Outfit" }}>
+            <div className="space-y-2 ml-14" style={{ fontFamily: "Poppins" }}>
               <p className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
                 Mon - Sat: 5:00 PM to 11:30 PM (GST)
               </p>
@@ -195,7 +196,7 @@ const ContactInfo = () => {
             </div>
             <p
               className="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 ml-14"
-              style={{ fontFamily: "Outfit" }}
+              style={{ fontFamily: "Poppins" }}
             >
               Response within 24 hours <br />
               (WhatsApp for Faster response)
@@ -229,7 +230,7 @@ const ContactInfo = () => {
               <Facebook className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
               <span
                 className="font-semibold"
-                style={{ fontFamily: "Outfit" }}
+                style={{ fontFamily: "Poppins" }}
               >
                 Facebook
               </span>
@@ -247,7 +248,7 @@ const ContactInfo = () => {
               <Instagram className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
               <span
                 className="font-semibold"
-                style={{ fontFamily: "Outfit" }}
+                style={{ fontFamily: "Poppins" }}
               >
                 Instagram
               </span>
@@ -265,13 +266,13 @@ const ContactInfo = () => {
               <FaBehance className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
               <span
                 className="font-semibold"
-                style={{ fontFamily: "Outfit" }}
+                style={{ fontFamily: "Poppins" }}
               >
                 Behance
               </span>
             </motion.a>
           </div>
-          <div className="text-center mt-6 space-y-2" style={{ fontFamily: "Outfit" }}>
+          <div className="text-center mt-6 space-y-2" style={{ fontFamily: "Poppins" }}>
             <p className="text-gray-500 text-sm">
               Follow for professional updates and behind-the-scenes content
             </p>

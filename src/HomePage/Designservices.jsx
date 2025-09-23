@@ -1,6 +1,7 @@
 import React from "react";
 import { Eye, Monitor, Palette, Printer, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 const Services = () => {
@@ -39,6 +40,27 @@ const Services = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section className="py-17 px-6 lg:px-20 bg-[#F9FAFB]">
       {/* Heading */}
@@ -52,11 +74,18 @@ const Services = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
             className={`relative p-6 rounded-br-4xl rounded-bl-4xl rounded-tl-4xl backdrop-blur-sm bg-gradient-to-br ${service.gradient} border ${service.border} hover:shadow-2xl transition-all duration-500 hover:scale-105 group overflow-hidden`}
+            variants={childVariants}
           >
             {/* Shimmer effect overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
@@ -84,9 +113,9 @@ const Services = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Button */}
       

@@ -8,6 +8,7 @@ import realstate from "../assets/Realestate7.jpg"
 import productDesign from "../assets/ProductPost2.jpg"
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { motion } from "framer-motion"
 
 const Featuredwork = () => {
 
@@ -45,10 +46,31 @@ const Featuredwork = () => {
     {
       img: socialpost,
       field: "Social Media Post Design",
-      title: "Enganing Social Media Post Designs",
+      title: "Enganing Social Media Post Design",
       description: "Social Media Post Designs of the fields and Types."
     }
   ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
 
   return (
     <div className="w-full bg-white py-16">
@@ -62,11 +84,18 @@ const Featuredwork = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-16">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
+      >
         {data.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className="relative group overflow-hidden rounded-xl shadow-md"
+            variants={childVariants}
           >
             {/* Image */}
             <img
@@ -86,9 +115,9 @@ const Featuredwork = () => {
               <h3 className="text-lg font-semibold mt-1 drop-shadow-md">{item.title}</h3>
               <p className="text-sm mt-1 max-w-xs drop-shadow-md">{item.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Button (outside grid) */}
       <div className="flex justify-center mt-14" style={{ fontFamily: "Poppins" }}>

@@ -1,14 +1,42 @@
 import React from "react";
 import { Hammer, TrendingUp, ShieldCheck, Sparkles } from "lucide-react";
-
-
- 
+import { motion } from "framer-motion";
 
 const WhatDrivesMe = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <div className="bg-[#F9FAFB] w-full py-16 px-6 sm:px-10">
+    <motion.div 
+      className="bg-[#F9FAFB] w-full py-16 px-6 sm:px-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={containerVariants}
+    >
       {/* Section Heading */}
-      <div className="max-w-3xl mx-auto text-center">
+      <motion.div 
+        className="max-w-3xl mx-auto text-center"
+        variants={childVariants}
+      >
         <h2
           className="text-3xl sm:text-4xl md:text-5xl font-bold"
           style={{ fontFamily: "Poppins" }}
@@ -26,12 +54,18 @@ const WhatDrivesMe = () => {
           My mission is to help businesses and individuals communicate their
           unique value through exceptional visual design.
         </p>
-      </div>
+      </motion.div>
 
       {/* Cards Section */}
-      <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <motion.div 
+        className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+        variants={containerVariants}
+      >
         {/* Card 1 */}
-        <div className="px-4 text-center">
+        <motion.div 
+          className="px-4 text-center"
+          variants={childVariants}
+        >
           <Hammer className="w-12 h-12 mx-auto text-blue-600" />
           <h3
             className="text-xl sm:text-2xl font-semibold mt-4"
@@ -46,10 +80,13 @@ const WhatDrivesMe = () => {
             Continuously improving my skills and staying current with design
             trends and technologies.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 2 */}
-        <div className="px-4 text-center">
+        <motion.div 
+          className="px-4 text-center"
+          variants={childVariants}
+        >
           <TrendingUp className="w-12 h-12 mx-auto text-green-600" />
           <h3
             className="text-xl sm:text-2xl font-semibold mt-4"
@@ -64,10 +101,13 @@ const WhatDrivesMe = () => {
             Measuring my success by the results my clients achieve with their
             new designs.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 3 */}
-        <div className="px-4 text-center">
+        <motion.div 
+          className="px-4 text-center"
+          variants={childVariants}
+        >
           <ShieldCheck className="w-12 h-12 mx-auto text-purple-600" />
           <h3
             className="text-xl sm:text-2xl font-semibold mt-4"
@@ -82,10 +122,13 @@ const WhatDrivesMe = () => {
             Maintaining honesty, transparency, and integrity in all client
             relationships.
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 4 */}
-        <div className="px-4 text-center">
+        <motion.div 
+          className="px-4 text-center"
+          variants={childVariants}
+        >
           <Sparkles className="w-12 h-12 mx-auto text-pink-600" />
           <h3
             className="text-xl sm:text-2xl font-semibold mt-4"
@@ -100,29 +143,32 @@ const WhatDrivesMe = () => {
             Pushing creative boundaries while respecting proven design
             principles.
           </p>
-        </div>
-      </div>
-          {/* Stats Section (Optional) */}
-        <div className="mt-20 h-40 rounded-xl grid grid-cols-2 items-center md:grid-cols-4 gap-8 text-center
-" >
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">25+</div>
-            <div className="text-gray-600">Projects Completed</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">96%</div>
-            <div className="text-gray-600">Client Satisfaction</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">1.5+</div>
-            <div className="text-gray-600">Years Experience</div>
-          </div>
-          <div>
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">6+</div>
-            <div className="text-gray-600">Happy Clients</div>
-          </div>
-        </div>
-    </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Stats Section */}
+      <motion.div 
+        className="mt-20 h-40 rounded-xl grid grid-cols-2 items-center md:grid-cols-4 gap-8 text-center"
+        variants={containerVariants}
+      >
+        <motion.div variants={childVariants}>
+          <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">25+</div>
+          <div className="text-gray-600">Projects Completed</div>
+        </motion.div>
+        <motion.div variants={childVariants}>
+          <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">96%</div>
+          <div className="text-gray-600">Client Satisfaction</div>
+        </motion.div>
+        <motion.div variants={childVariants}>
+          <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">1.5+</div>
+          <div className="text-gray-600">Years Experience</div>
+        </motion.div>
+        <motion.div variants={childVariants}>
+          <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">6+</div>
+          <div className="text-gray-600">Happy Clients</div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

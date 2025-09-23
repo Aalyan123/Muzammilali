@@ -5,6 +5,7 @@ import img2 from "../assets/almezan.jpeg"
 import img3 from "../assets/zaeemhussain.jpeg"
 import img4 from "../assets/mmuzammil.jpeg"
 import img5 from "../assets/tacos.jpeg"
+import { motion } from "framer-motion"
 
 const Clients = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,11 +59,28 @@ const Clients = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
   };
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-4xl lg:max-w-6xl mx-auto">
         {/* Header - Improved */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-16">
+        <motion.div 
+          className="text-center mb-10 sm:mb-14 lg:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
           <h2 
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4"
             style={{fontFamily:"Poppins"}}
@@ -75,10 +93,16 @@ const Clients = () => {
           >
             See What <span className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Clients Are Saying</span> About Their Experience
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonial Carousel */}
-        <div className="relative bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-lg sm:shadow-xl lg:shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 border border-gray-100 mx-2 sm:mx-0">
+        <motion.div 
+          className="relative bg-white rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-lg sm:shadow-xl lg:shadow-2xl p-6 sm:p-8 md:p-10 lg:p-12 border border-gray-100 mx-2 sm:mx-0"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
+        >
           {/* Quote Icon */}
           <div className="absolute top-4 sm:top-6 left-4 sm:left-6 text-blue-500/20">
             <Quote className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
@@ -151,7 +175,7 @@ const Clients = () => {
           {/* Decorative Elements */}
           <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-blue-500/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl -translate-y-8 sm:-translate-y-12 lg:-translate-y-16 translate-x-8 sm:translate-x-12 lg:translate-x-16"></div>
           <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-purple-500/10 rounded-full blur-xl sm:blur-2xl lg:blur-3xl translate-y-8 sm:translate-y-12 lg:translate-y-16 -translate-x-8 sm:-translate-x-12 lg:-translate-x-16"></div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,32 +1,33 @@
-import React, { useState } from 'react'
-import FiverrGig1 from "../assets/FiverrGig1.jpg"
-import FiverrGig2 from "../assets/FiverrGig2.jpg"
-import FiverrGig3 from "../assets/FiverrGig3.jpg"
-import FiverrGig4 from "../assets/FiverrGig4.jpg"
-import Social1 from "../assets/SocialmediaDesign1.jpg"
-import Social2 from "../assets/SocialmediaDesign2.jpg"
-import Social3 from "../assets/SocialmediaDesign3.jpg"
-import Social4 from "../assets/SocialmediaDesign4.jpg"
-import Social5 from "../assets/SocialmediaDesign5.jpg"
-import Social6 from "../assets/SocialmediaDesign6.jpg"
-import Social7 from "../assets/SocialmediaDesign7.jpg"
-import real1 from "../assets/Realestate1.jpg"
-
-import real3 from "../assets/Realestate3.jpg"
-import real4 from "../assets/Realestate4.jpg"
-import real5 from "../assets/Realestate5.jpg"
-import real6 from "../assets/RealEstate6.jpg"
-import real7 from "../assets/Realestate7.jpg"
-import product1 from "../assets/ProductPost1.jpg"
-import product2 from "../assets/ProductPost2.jpg"
-import product3 from "../assets/ProductPost3.jpg"
-import product4 from "../assets/ProductPost4.jpg"
-import product5 from "../assets/ProductPost5.jpg"
-import reastaurant1 from "../assets/FoodDesign1.jpg"
-import reastaurant2 from "../assets/Fooddesign2.jpg"
-import reastaurant3 from "../assets/FoodDesign3.jpg"
-import reastaurant4 from "../assets/FoodDesign4.jpg"
-import reastaurant5 from "../assets/FoodDesign5.jpg"
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import FiverrGig1 from "../assets/FiverrGig1.jpg";
+import FiverrGig2 from "../assets/FiverrGig2.jpg";
+import FiverrGig3 from "../assets/FiverrGig3.jpg";
+import FiverrGig4 from "../assets/FiverrGig4.jpg";
+import Social1 from "../assets/SocialmediaDesign1.jpg";
+import Social2 from "../assets/SocialmediaDesign2.jpg";
+import Social3 from "../assets/SocialmediaDesign3.jpg";
+import Social4 from "../assets/SocialmediaDesign4.jpg";
+import Social5 from "../assets/SocialmediaDesign5.jpg";
+import Social6 from "../assets/SocialmediaDesign6.jpg";
+import Social7 from "../assets/SocialmediaDesign7.jpg";
+import real1 from "../assets/Realestate1.jpg";
+import real3 from "../assets/Realestate3.jpg";
+import real4 from "../assets/Realestate4.jpg";
+import real5 from "../assets/Realestate5.jpg";
+import real6 from "../assets/RealEstate6.jpg";
+import real7 from "../assets/Realestate7.jpg";
+import product1 from "../assets/ProductPost1.jpg";
+import product2 from "../assets/ProductPost2.jpg";
+import product3 from "../assets/ProductPost3.jpg";
+import product4 from "../assets/ProductPost4.jpg";
+import product5 from "../assets/ProductPost5.jpg";
+import reastaurant1 from "../assets/FoodDesign1.jpg";
+import reastaurant2 from "../assets/Fooddesign2.jpg";
+import reastaurant3 from "../assets/FoodDesign3.jpg";
+import reastaurant4 from "../assets/FoodDesign4.jpg";
+import reastaurant5 from "../assets/FoodDesign5.jpg";
 
 const Categories = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -35,15 +36,14 @@ const Categories = () => {
   // Define your images with descriptions for each category
   const imageData = {
     All: [
-      // One representative image from each category
       { image: product1, title: 'Product Advertisement', description: 'Professional product advertisement design with compelling visuals' },
       { image: Social1, title: 'Social Media Post', description: 'Engaging Instagram post design' },
       { image: real1, title: 'Property Showcase', description: 'Luxury property marketing design' },
       { image: reastaurant1, title: 'Restaurant Menu Design', description: 'Elegant restaurant menu with appetizing food photography' },
-       { image: product4, title: 'Clothing Post Design', description: 'Engaging Instagram post with modern aesthetics' },
-       { image: Social3, title: 'Story Template Design', description: 'Creative Instagram story template for engagement' },
-        { image: reastaurant2, title: 'Chicken Biryani Post Design', description: 'Engaging Instagram post with modern aesthetics' },
-         { image: reastaurant5, title: 'Restaurant Post Design', description: 'Engaging Instagram post with modern aesthetics' },
+      { image: product4, title: 'Clothing Post Design', description: 'Engaging Instagram post with modern aesthetics' },
+      { image: Social3, title: 'Story Template Design', description: 'Creative Instagram story template for engagement' },
+      { image: reastaurant2, title: 'Chicken Biryani Post Design', description: 'Engaging Instagram post with modern aesthetics' },
+      { image: reastaurant5, title: 'Restaurant Post Design', description: 'Engaging Instagram post with modern aesthetics' },
     ],
     'Product design': [
       { image: product1, title: 'Headphone Post Design', description: 'Engaging Instagram post with modern aesthetics' },
@@ -105,22 +105,57 @@ const Categories = () => {
     setPreviewImage(null);
   };
 
-  // --- UPDATED: show only the images in imageData['All'] when activeCategory === 'All'
+  // Get images to show based on active category
   const getImagesToShow = () => {
-    if (activeCategory === 'All') {
-      return imageData['All'] || [];
-    }
     return imageData[activeCategory] || [];
   };
+
+  // Animation variants for header
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Animation variants for category buttons
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.1 }
+    })
+  };
+
+  // Animation variants for images
+  const imageVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 }
+    })
+  };
+
+  // Hooks for in-view detection
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [buttonsRef, buttonsInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [galleryRef, galleryInView] = useInView({ triggerOnce: true, threshold: 0.2 });
 
   return (
     <div className='min-h-screen w-full bg-gray-50'>
       {/* Categories Section */}
       <div className='w-full pt-8'>
-        <div className='grid grid-cols-2 px-7 gap-4 md:flex md:flex-row md:gap-5 items-center md:justify-center mt-10'>
-          {categories.map((category) => (
-            <button
+        <motion.div
+          ref={buttonsRef}
+          className='grid grid-cols-2 px-7 gap-4 md:flex md:flex-row md:gap-5 items-center md:justify-center mt-10'
+        >
+          {categories.map((category, index) => (
+            <motion.button
               key={category}
+              custom={index}
+              initial="hidden"
+              animate={buttonsInView ? "visible" : "hidden"}
+              variants={buttonVariants}
               onClick={() => handleCategoryClick(category)}
               className={`group font-semibold px-8 py-4 rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 ${
                 activeCategory === category
@@ -130,21 +165,32 @@ const Categories = () => {
               style={{ fontFamily: "Poppins" }}
             >
               {category}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Images Gallery Section */}
       <div className='w-full px-7 py-12'>
-        <h2 className='text-4xl font-bold text-center mb-8 text-gray-800 ' style={{fontFamily: "Poppins"}}>
+        <motion.h2
+          ref={headerRef}
+          initial="hidden"
+          animate={headerInView ? "visible" : "hidden"}
+          variants={headerVariants}
+          className='text-4xl font-bold text-center mb-8 text-gray-800'
+          style={{ fontFamily: "Poppins" }}
+        >
           {activeCategory} Portfolio
-        </h2>
+        </motion.h2>
         
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+        <div ref={galleryRef} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
           {getImagesToShow().map((item, index) => (
-            <div 
+            <motion.div
               key={`${activeCategory}-${index}`}
+              custom={index}
+              initial="hidden"
+              animate={galleryInView ? "visible" : "hidden"}
+              variants={imageVariants}
               className='bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer'
               onClick={() => openPreview(item.image)}
             >
@@ -159,12 +205,11 @@ const Categories = () => {
                 />
               </div>
               <div className='p-4'>
-                <h3 className='font-semibold text-lg text-gray-800 mb-2' style={{fontFamily: "Poppins"}}>
+                <h3 className='font-semibold text-lg text-gray-800 mb-2' style={{ fontFamily: "Poppins" }}>
                   {item.title}
                 </h3>
-                
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -185,7 +230,7 @@ const Categories = () => {
             <button
               onClick={closePreview}
               className='absolute -top-16 right-0 bg-white rounded-full p-3 shadow-lg text-gray-600 text-xl font-bold hover:text-gray-800 hover:shadow-xl transition-all duration-200'
-              style={{fontFamily: "Poppins"}}
+              style={{ fontFamily: "Poppins" }}
             >
               ✕
             </button>

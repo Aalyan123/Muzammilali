@@ -67,7 +67,7 @@ const Expect = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
           <p
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Outfit" }}
+            style={{ fontFamily: "Poppins" }}
           >
             A transparent, collaborative process designed to deliver exceptional
             results that exceed your expectations
@@ -115,7 +115,7 @@ const Expect = () => {
               </h3>
               <p 
                 className="text-gray-600 group-hover:text-gray-700 leading-relaxed text-lg transition-colors duration-300" 
-                style={{ fontFamily: "Outfit" }}
+                style={{ fontFamily: "Poppins" }}
               >
                 {step.desc}
               </p>

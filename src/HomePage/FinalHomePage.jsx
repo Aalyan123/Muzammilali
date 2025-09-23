@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Herosection from './Herosection'
 import OwnerIntro from './OwnerIntro'
 import Designservices from "./Designservices"
@@ -8,17 +8,23 @@ import Designexpertise from "./Designexpertise"
 import Clients from "./Clients"
 
 const FinalHomePage = () => {
-  return (
+  
+return (
     <>
-    <Herosection/>
-    <OwnerIntro/>
-    <Designservices/>
-    <Featuredwork/>
-    <Whytochoose/>
-    <Designexpertise/>
-    <Clients/>
+    
+      <Herosection />
+      <OwnerIntro />
+      <Designservices />
+      <Featuredwork />
+      <Whytochoose />
+      <Designexpertise />
+      <Clients />
     </>
   )
-}
+
+
+  };
+
+  
 
 export default FinalHomePage

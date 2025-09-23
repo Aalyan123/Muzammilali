@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 import { Award } from 'lucide-react';
+import { motion } from "framer-motion";
 
 const ComprehensiveDesignExpertise = () => {
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 200);
-    return () => clearTimeout(timer);
-  }, []);
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+      },
+    },
+  };
 
   return (
     <section className="bg-gradient-to-br from-purple-50 to-blue-50 py-8 xs:py-10 sm:py-12 md:py-16 lg:py-20 px-4 xs:px-5 sm:px-6 lg:px-8 xl:px-12">
       <div className="max-w-xl xs:max-w-2xl sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto">
         
         {/* Main Content Card */}
-        <div
+        <motion.div
           className={`bg-white rounded-xl xs:rounded-2xl sm:rounded-3xl shadow-lg 
-                     p-4 xs:p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 relative overflow-hidden 
-                     transform transition-all duration-700 ${
-            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-          }`}
+                     p-4 xs:p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 relative overflow-hidden`}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={sectionVariants}
         >
           {/* Decorative Background Elements */}
           <div className="absolute top-0 right-0 
@@ -71,7 +78,7 @@ const ComprehensiveDesignExpertise = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

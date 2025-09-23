@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -50,22 +52,54 @@ const Faqs = () => {
     }
   ];
 
+  // Animation variants for header
+  const headerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  // Animation variants for FAQ items
+  const faqVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut", delay: i * 0.2 }
+    })
+  };
+
+  // Hooks for in-view detection
+  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+  const [faqsRef, faqsInView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
     <div className="bg-white py-16 px-4 sm:px-6 lg:px-8" style={{ fontFamily: "Poppins" }}>
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        {/* Header Section */}
+        <motion.div
+          ref={headerRef}
+          initial="hidden"
+          animate={headerInView ? "visible" : "hidden"}
+          variants={headerVariants}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 text-xl mt-4 max-w-2xl mx-auto">
             Common questions about my design services
           </p>
-        </div>
+        </motion.div>
 
-        <div className="space-y-6">
+        {/* FAQ Items */}
+        <div ref={faqsRef} className="space-y-6">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <motion.div
+              key={index}
+              custom={index}
+              initial="hidden"
+              animate={faqsInView ? "visible" : "hidden"}
+              variants={faqVariants}
               className={`bg-white rounded-xl shadow-md transition-all duration-300 overflow-hidden ${
                 activeIndex === index 
                   ? 'ring-2 ring-blue-500 shadow-lg' 
@@ -104,11 +138,9 @@ const Faqs = () => {
                   dangerouslySetInnerHTML={{ __html: faq.answer }}
                 />
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-
-        
       </div>
     </div>
   );

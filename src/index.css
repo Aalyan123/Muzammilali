@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+
+.icon-float {
+  position: absolute;
+  width: 64px;   /* bigger than before */
+  height: 64px;
+  object-fit: contain;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Place icons around the hero image */
+.icon-photoshop {
+  top: 15%;   /* top-left */
+  left: -12%;
+  animation-delay: 0s;
+}
+.icon-illustrator {
+  top: -8%;   /* top-right */
+  right: -12%;
+  animation-delay: 0.4s;
+}
+.icon-canva {
+  bottom: -8%; /* bottom-right */
+  right: -10%;
+  animation-delay: 0.8s;
+}
+
+/* Gentle float animation */
+@keyframes float {
+  0%   { transform: translateY(0px) scale(1); }
+  50%  { transform: translateY(-12px) scale(1.08); }
+  100% { transform: translateY(0px) scale(1); }
+}

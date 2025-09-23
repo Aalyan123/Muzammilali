@@ -5,12 +5,31 @@ import img3 from "../assets/ProductPost4.jpg";
 import img4 from "../assets/SocialmediaDesign5.jpg";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Cardssection = () => {
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <>
       {/* Product Design Section */}
-      <div className="w-full bg-[#F9FAFB] px-8 md:px-28">
+      <motion.div 
+        className="w-full bg-[#F9FAFB] px-8 md:px-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-18 py-12">
           <div className="flex-1">
             <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold" style={{fontFamily:"Poppins"}}>
@@ -47,10 +66,16 @@ const Cardssection = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Creative Solutions Section */}
-      <div className="w-full bg-[#F9FAFB] px-8 md:px-28">
+      <motion.div 
+        className="w-full bg-[#F9FAFB] px-8 md:px-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-18 py-12">
           <div className="flex-1 flex justify-center">
             <img
@@ -86,10 +111,16 @@ const Cardssection = () => {
    </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Social Media Design Section */}
-      <div className="w-full bg-[#F9FAFB] px-8 md:px-28">
+      <motion.div 
+        className="w-full bg-[#F9FAFB] px-8 md:px-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-18 py-12">
           <div className="flex-1">
             <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold" style={{fontFamily:"Poppins"}}>
@@ -126,10 +157,16 @@ const Cardssection = () => {
             />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Print Materials Section */}
-      <div className="w-full bg-[#F9FAFB] px-8 md:px-28">
+      <motion.div 
+        className="w-full bg-[#F9FAFB] px-8 md:px-28"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-18 py-12">
           <div className="flex-1 flex justify-center">
             <img
@@ -165,7 +202,7 @@ const Cardssection = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
