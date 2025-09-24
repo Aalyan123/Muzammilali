@@ -127,7 +127,7 @@ const WhyChooseUs = () => {
             { value: "25+", label: "Projects Completed" },
             { value: "96%", label: "Client Satisfaction" },
             { value: "1.5+", label: "Years Experience" },
-            { value: "6+", label: "Happy Clients" }
+            { value: "8+", label: "Happy Clients" }
           ].map((stat, index) => (
             <motion.div
               key={index}
