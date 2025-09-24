@@ -52,17 +52,20 @@ const ContactInfo = () => {
             className="group bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-white/50 hover:shadow-2xl hover:border-blue-200 transition-all duration-500 cursor-pointer"
             onClick={handleEmailClick}
           >
+             <a href="mailto:contact@muzammilali.site">
             <div className="flex flex-col items-center text-center space-y-4">
               <div className="p-4 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl group-hover:from-blue-200 group-hover:to-blue-300 transition-all duration-500 group-hover:rotate-6">
                 <Mail className="text-blue-600 w-8 h-8 group-hover:scale-110 transition-transform duration-300" />
               </div>
               <div>
+               
                 <h3
                   className="text-lg font-bold text-gray-800 mb-2"
                   style={{ fontFamily: "Poppins" }}
                 >
                   Email Me
                 </h3>
+              
                 <p
                   className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
                   style={{ fontFamily: "Poppins" }}
@@ -71,6 +74,7 @@ const ContactInfo = () => {
                 </p>
               </div>
             </div>
+              </a>
           </motion.div>
 
           {/* Phone / WhatsApp Card */}
