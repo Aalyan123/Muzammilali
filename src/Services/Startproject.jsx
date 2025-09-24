@@ -43,10 +43,11 @@ const Startproject = () => {
         {/* Button 2 */}
         <Link to='/'>
         <a
-          href="mailto:example@email.com"
+          href="mailto:contact@muzammilali.site"
           className="border text-lg border-black-400 text-black font-medium rounded-full px-8 py-3 flex items-center justify-center gap-2 hover:bg-white hover:text-black hover:scale-105 transition-transform duration-300" style={{fontFamily:"Poppins"}}
         >
-          <Mail className="w-5 h-5" />
+       
+          <Mail  className="w-5 h-5" />
           contact@muzammilali.site
         </a>
         </Link>
