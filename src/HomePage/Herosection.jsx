@@ -7,7 +7,6 @@ import canva from "../assets/canva.png";
 import photoshop from "../assets/photoshop.png";
 import hero from "../assets/Muzammil.jpeg";
 
-
 const Herosection = () => {
   // Use a placeholder image URL since local file paths do not work in this environment.
   // Replace this URL with a link to your own hosted image in the future.
@@ -70,7 +69,7 @@ const Herosection = () => {
   return (
     <div
       className="min-h-screen w-full relative overflow-hidden flex items-center justify-center
-      bg-[linear-gradient(135deg,#ffffff_0%,#e0e7ff_33%,#ddd6fe_66%,#fbcfe8_100%)] px-4 sm:px-6 lg:px-8"
+      bg-[linear-gradient(135deg,#ffffff_0%,#e0e7ff_33%,#ddd6fe_66%,#fbcfe8_100%)] px-4 sm:px-6 lg:px-8 pt-16 sm:pt-0"
     >
       {/* Subtle floating radial lights */}
       <div className="absolute inset-0">

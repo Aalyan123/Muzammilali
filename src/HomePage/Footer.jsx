@@ -85,7 +85,10 @@ const Footer = () => {
           <p className="flex items-center space-x-1">
             <span>Made with</span>
             <Heart className="w-4 h-4 text-red-500" />
-            <span>for amazing clients</span>
+            <span>by</span>
+            <a href='https://www.linkedin.com/in/aalyan-kashif-11bb93377/' target='blank'>
+            <span className='text-white'> Aalyan Kashif</span>
+            </a>
           </p>
         </div>
       </div>
