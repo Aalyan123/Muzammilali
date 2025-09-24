@@ -29,7 +29,7 @@ const OwnerIntro = () => {
       <div className="max-w-7xl mx-auto">
         <h2
           id="about-heading"
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-2"
+          className="text-3xl sm:text-4xl lg:text-6xl font-bold text-center mb-2"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           About Me
