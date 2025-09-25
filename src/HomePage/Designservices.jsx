@@ -66,7 +66,9 @@ const Services = () => {
       {/* Heading */}
       <div className="text-center max-w-2xl mx-auto mb-16" style={{ fontFamily: "Poppins" }}>
         <h2 className="text-3xl md:text-5xl font-bold text-gray-900 bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-          Our Design Services
+          Our   <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+               Design Services
+              </span>
         </h2>
         <p className="mt-4 text-gray-600 text-lg max-w-3xl mx-auto" style={{ fontFamily: "Outfit" }}>
           All stuff from brand identity to digital marketing.

@@ -76,7 +76,9 @@ const Featuredwork = () => {
     <div className="w-full bg-white py-16">
       {/* Heading */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-5xl font-bold" style={{ fontFamily: "Poppins" }}>Featured Work</h2>
+        <h2 className="text-3xl lg:text-5xl font-bold" style={{ fontFamily: "Poppins" }}>Featured  <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+               Work
+              </span></h2>
         <p className="text-lg font-normal text-[#364153] mt-4" style={{ fontFamily: "Outfit" }}>
           Explore a selection of recent projects that showcase my design expertise <br />
           and creative problem-solving approach.

@@ -32,7 +32,9 @@ const OwnerIntro = () => {
           className="text-3xl sm:text-4xl lg:text-6xl font-bold text-center mb-2"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
-          About Me
+           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                About
+              </span> Me
         </h2>
 
         <p
